@@ -2,6 +2,9 @@ import string
 import numpy as np
 
 class EngineeringFormat(string.Formatter):
+  '''Engineering formatting for Math display
+  usage:  .format('{0}\t{0:eng,mm}', v)'''
+  
   def format_field(self, value, format_spec):
     if format_spec.startswith('eng'):
       try:
