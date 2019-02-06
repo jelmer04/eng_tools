@@ -37,4 +37,5 @@ class EngineeringFormat(string.Formatter):
       return super().format_field(value, format_spec)
     
     
-eng_format = EngineeringFormat()
+eng_format_obj = EngineeringFormat()
+eng_format = eng_format_obj.format
