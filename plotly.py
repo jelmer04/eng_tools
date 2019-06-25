@@ -1,0 +1,29 @@
+import plotly.offline as pyo
+import plotly.graph_objs as go
+from plotly.offline import iplot
+
+import cufflinks as cf
+from plotly.offline import download_plotlyjs, init_notebook_mode, plot, iplot 
+
+from plotly.colors import DEFAULT_PLOTLY_COLORS as colors
+import plotly.tools as tls
+
+cf.go_offline()
+
+init_notebook_mode(connected=False)
+
+def configure_plotly_browser_state():
+  import IPython
+  display(IPython.core.display.HTML('''
+        <script src="/static/components/requirejs/require.js"></script>
+        <script>
+          requirejs.config({
+            paths: {
+              base: '/static/base',
+              plotly: 'https://cdn.plot.ly/plotly-1.3.0.min.js?noext',
+            },
+          });
+        </script>
+        '''))
+        
+get_ipython().events.register('post_run_cell', configure_plotly_browser_state)
