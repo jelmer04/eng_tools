@@ -26,4 +26,4 @@ def configure_plotly_browser_state():
         </script>
         '''))
         
-get_ipython().events.register('post_run_cell', configure_plotly_browser_state)
+get_ipython().events.register('pre_run_cell', configure_plotly_browser_state)
