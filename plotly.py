@@ -12,17 +12,19 @@ cf.go_offline()
 
 init_notebook_mode(connected=False)
 
+plotly_version = '1.3.0'
+
 def configure_plotly_browser_state():
   import IPython
-  display(IPython.core.display.HTML('''
+  display(IPython.core.display.HTML(f'''
         <script src="/static/components/requirejs/require.js"></script>
         <script>
-          requirejs.config({
-            paths: {
+          requirejs.config({{
+            paths: {{
               base: '/static/base',
-              plotly: 'https://cdn.plot.ly/plotly-1.3.0.min.js?noext',
-            },
-          });
+              plotly: 'https://cdn.plot.ly/plotly-{plotly_version}.min.js?noext',
+            }},
+          }});
         </script>
         '''))
         
